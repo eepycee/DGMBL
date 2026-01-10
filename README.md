@@ -1,6 +1,6 @@
-# random-.bat-file-for-funnys
+# DGMBL
 
-As of V1.1-DELTA
+As of beta1
 
 can open calculator,
 open it 10 times,
