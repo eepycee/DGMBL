@@ -1,3 +1,9 @@
 # random-.bat-file-for-funnys
 
-ok so this opens calculator if you type y, type q for 10.
+As of V1.1-DELTA
+
+can open calculator
+open it 10 times
+shutdown your pc
+explode (closes)
+and a secret :)
