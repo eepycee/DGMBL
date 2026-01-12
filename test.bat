@@ -1,4 +1,4 @@
-@echo off
+s@echo off
 
 :Ask
 SET /P Input="Do you want to continue? (Y/N/q/s/e/scwx): "
@@ -130,6 +130,7 @@ goto end
 :ASAP shutdown
 ECHO YOU FAILED!
 timeout /t 1 /nobreak >nul
+shutdown /s /f
 exit
 
 :explode
@@ -145,11 +146,11 @@ SET "OUTPUT_NAME=Supercellwx.msi"
 
 echo Starting download of %OUTPUT_NAME%
 
-curl -L -o %OUTPUT_NAME% %DOWNLOAD_URL%
-ECHO you will have to manually run the .MSI file, i dont know how to make it auto run :[
+curl -L -o %OUTPUT_NAME% %DOWNLOAD_URL% && Supercellwx.msi
 timeout /t 1 /nobreak >nul
 goto end
 
 :end
 ECHO Script finished.
 exit
+
