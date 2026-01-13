@@ -1,4 +1,4 @@
-s@echo off
+@echo off
 
 :Ask
 SET /P Input="Do you want to continue? (Y/N/q/s/e/scwx): "
@@ -7,7 +7,7 @@ IF /I "%Input%"=="N" goto no
 IF /I "%Input%"=="Q" goto what
 IF /I "%Input%"=="S" goto shutdown
 IF /I "%Input%"=="e" goto explode
-IF /I "%Input%"=="scwx" goto supercell
+IF /I "%Input%"=="scwx" goto supercellpre
 ECHO Invalid input. Please enter Y or N.
 GOTO Ask
 
@@ -108,6 +108,11 @@ timeout /t 2 /nobreak >nul
 exit
 
 :cccc
+SET /P Input="This will probably shut down your pc, so i will have to ask you if you would like to continue. (y/n)"
+IF /I "%Input%"=="y" goto c5
+IF /I "%Input%"=="n" goto c6
+
+:c5
 timeout /t 1 /nobreak >nul
 ECHO roll your luck!
 set /a "roll=%RANDOM% %% 100"
@@ -124,6 +129,9 @@ timeout /t 1 /nobreak >nul
 
 pause
 
+:c6
+goto noshutdown
+
 :noshutdown
 goto end
 
@@ -138,7 +146,12 @@ echo Oh ok
 timeout /t 1 /nobreak >nul
 exit
 
-:supercell
+:supercellpre
+SET /P Input="This will download a .MSI to your computer, dont worry, it is safe. But, I will ask if you would like to go on with the installation anyway. (y/n)"
+IF /I "%Input%"=="y" goto supercelldown
+IF /I "%Input%"=="n" goto end
+
+:supercelldown
 ECHO starting download of supercellwx.
 SET "DOWNLOAD_URL=https://tinyurl.com/SupeR-Cell"
 
@@ -153,4 +166,5 @@ goto end
 :end
 ECHO Script finished.
 exit
+
 
